@@ -20,7 +20,7 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <Button text="bonjour" />
-      <Button text="2eme essai" />
+      <Button text="2eme essai" style={{backgroundColor: 'red'}} />
       <NButton title="le bouton classique"></NButton>
     </SafeAreaView>
   );

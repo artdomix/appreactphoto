@@ -5,7 +5,7 @@ const Button = props => {
   console.log(props);
   return (
     <TouchableOpacity
-      style={style.Button}
+      style={{...style.Button, ...props.style}}
       onPress={evt => {
         console.log('EventduButton', evt.target);
       }}>
