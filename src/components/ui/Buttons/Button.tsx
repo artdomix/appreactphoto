@@ -9,6 +9,7 @@ interface IButtonProps {
   color?: string;
   text?: string;
   children?: React.ReactElement | Array<React.ReactElement>;
+  onPress?: Function;
 }
 const Button: React.FC<IButtonProps> = props => {
   console.log(props);
@@ -17,6 +18,9 @@ const Button: React.FC<IButtonProps> = props => {
       style={{...styles.Button, ...props.style, backgroundColor: props.bgcolor}}
       onPress={evt => {
         console.log('EventduButton', evt.target);
+        if (props.onPress) {
+          props.onPress();
+        }
       }}>
       <View style={styles.mainView}>
         {props.children !== undefined ? (
@@ -38,6 +42,7 @@ Button.propTypes = {
 Button.defaultProps = {
   bgcolor: 'orange',
   color: 'black',
+  //onPress: ()=>(),
 };
 
 export default Button;
