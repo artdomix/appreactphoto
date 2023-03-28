@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Text, TouchableOpacity} from 'react-native';
-import style from './Button.style.js';
+import {Text, TouchableOpacity, View} from 'react-native';
+import styles from './Button.style';
 const Button = props => {
   console.log(props);
   return (
     <TouchableOpacity
-      style={{...style.Button, ...props.style, ...props.bgcolor}}
+      style={{...styles.Button, ...props.style, backgroundColor: props.bgcolor}}
       onPress={evt => {
         console.log('EventduButton', evt.target);
       }}>
-      {props.text && (
-        <Text style={{...style.text, ...props.color}}>{props.text}</Text>
-      )}
+      <View>
+        {props.children !== undefined ? (
+          props.children
+        ) : (
+          <Text style={{...styles.text, color: props.color}}>{props.text}</Text>
+        )}
+      </View>
     </TouchableOpacity>
   );
 };
@@ -21,6 +25,7 @@ Button.propType = {
   bgcolor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   text: PropTypes.string,
+  styles: PropTypes.object,
   children: PropTypes.any,
 };
 Button.defaultProps = {

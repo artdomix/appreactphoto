@@ -34,7 +34,8 @@ function App(): JSX.Element {
           style={{width: 50, height: 50}}
         />
       </Button>
-      <Button children="Button4"></Button>
+      {/* <Button children="Button4"></Button>*/}
+      <Button text="lumiere"></Button>
       <Button>
         <Text>clique moi</Text>
       </Button>
