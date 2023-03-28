@@ -1,0 +1,6 @@
+{
+    "products": [{"id": 1, "name": "ticket", "prix": 45, "img": "https://ggwash.org/images/posts/_resized/4529262803_8f2b9d7b29_o.jpg", "description": "washington palace"},
+    {"id": 2, "name": "chaussure", "prix": 90, "img": "https://contents.mediadecathlon.com/p1756348/k$52c7dbba7cd3d2f65aba7ed37572a356/sq/Chaussure+de+Badminton+et+sports+int+rieurs+POWER+CUSHION+36+noir.jpg", "description": "washington palace"},
+    {"id": 3, "name": "raquette", "prix": 150, "img": "https://www.casalsport.com/fstrz/r/s/www.casalsport.com/img/W/CAS/ST/BA/40/15/BA4015/BA4015_ST.jpg?frz-v=79", "description": "washington palace"},
+    {"id": 4, "name": "volants", "prix": 15, "img": "https://www.casalsport.com/fstrz/r/s/www.casalsport.com/img/W/CAS/ST/BA/31/3/BA313/BA313_ST.jpg?frz-v=79", "description": "washington palace"}]
+}
