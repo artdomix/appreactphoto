@@ -12,4 +12,8 @@ export default StyleSheet.create({
     fontWeight: '900',
     textAlign: 'center',
   },
+  mainView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });

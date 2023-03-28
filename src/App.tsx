@@ -12,10 +12,13 @@ import {
   Button as NButton,
   Image,
   Text,
+  View,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Button from './components/ui/Buttons/Button';
+import {StyleSheet} from 'react-native';
+
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -25,6 +28,28 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      <View>
+        <Text style={styles.displayCounterText}>counter</Text>
+        <Text style={{...styles.displayCounterText, ...styles.big}}>0</Text>
+      </View>
+      <View style={styles.oneLigne}>
+        <Button bgcolor="red">
+          <Image
+            source={{
+              uri: 'https://cdn.onlinewebfonts.com/svg/img_27761.png',
+            }}
+            style={{width: 50, height: 50}}
+          />
+        </Button>
+        <Button bgcolor="blue">
+          <Image
+            source={{
+              uri: 'https://cdn.icon-icons.com/icons2/37/PNG/512/less_3158.png',
+            }}
+            style={{width: 50, height: 50}}
+          />
+        </Button>
+      </View>
       <Button text="bonjour" />
       <Button text="helloworld">
         <Image
@@ -51,6 +76,15 @@ function App(): JSX.Element {
   );
 }
 
-//const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  displayCounterText: {
+    textAlign: 'center',
+  },
+  big: {
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  oneLigne: {},
+});
 
 export default App;
