@@ -5,10 +5,10 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderColor: 'white',
     borderRadius: 8,
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
   },
   text: {
-    color: 'black',
+    // color: 'black',
     fontWeight: '900',
     textAlign: 'center',
   },
