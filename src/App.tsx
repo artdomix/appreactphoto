@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   useColorScheme,
@@ -27,6 +27,14 @@ function App(): JSX.Element {
   };
   //let counter = 0;
   const [counter, setcounter] = useState(0);
+  useEffect(() => {
+    console.log('-------------------');
+    console.log('nouvelle variable de counter : ', counter);
+    console.log('============');
+    /* return () => {
+      effect
+    };*/
+  }, [counter]);
   return (
     <SafeAreaView style={backgroundStyle}>
       <View>
