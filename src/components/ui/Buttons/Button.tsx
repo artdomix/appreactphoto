@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './Button.style';
-const Button = props => {
+interface IButtonProps {
+  style?: object;
+  bgcolor?: string;
+  color?: string;
+  text?: string;
+  children?: React.ReactElement | Array<React.ReactElement>;
+}
+const Button: React.FC<IButtonProps> = props => {
   console.log(props);
   return (
     <TouchableOpacity
@@ -21,11 +28,11 @@ const Button = props => {
     </TouchableOpacity>
   );
 };
-Button.propType = {
+Button.propTypes = {
   bgcolor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   text: PropTypes.string,
-  styles: PropTypes.object,
+  style: PropTypes.object,
   children: PropTypes.any,
 };
 Button.defaultProps = {
