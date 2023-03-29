@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "resjson": "npx json-server -p 9094 db/db.json",
     "makeGenericCnp": "npx generate-react-cli c --type=rnfunction"
   },
   "dependencies": {

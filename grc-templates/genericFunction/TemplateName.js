@@ -27,6 +27,6 @@ const TemplateName = props => {
     </View>
   );
 };
-TemplateName.PropTypes = {};
+TemplateName.propTypes = {};
 TemplateName.defaultProps = {};
 export default TemplateName;

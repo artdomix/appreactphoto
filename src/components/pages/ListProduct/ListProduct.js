@@ -1,16 +1,18 @@
 import {View, Text} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import styles from './Product.styles';
-const productInitialPropsValue = '';
+import styles from './ListProduct.styles';
+const listProductInitialPropsValue = '';
 
-const Product = props => {
-  const [productState, setproductState] = useState(productInitialPropsValue);
+const ListProduct = props => {
+  const [listProductState, setlistProductState] = useState(
+    listProductInitialPropsValue,
+  );
   useEffect(() => {
     return () => {
       console.log(`update  de temaplateName`);
     };
-  }, [productState]);
+  }, [listProductState]);
 
   useEffect(() => {
     console.log(`mount  de temaplateName`);
@@ -20,11 +22,11 @@ const Product = props => {
     };
   }, []);
   return (
-    <View>
-      <Text>product</Text>
+    <View style={styles.ListProduct}>
+      <Text>listProduct</Text>
     </View>
   );
 };
-Product.propTypes = {};
-Product.defaultProps = {};
-export default Product;
+ListProduct.propTypes = {};
+ListProduct.defaultProps = {};
+export default ListProduct;

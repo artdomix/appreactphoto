@@ -27,6 +27,6 @@ const EditProduct = props => {
     </View>
   );
 };
-EditProduct.PropTypes = {};
+EditProduct.propTypes = {};
 EditProduct.defaultProps = {};
 export default EditProduct;

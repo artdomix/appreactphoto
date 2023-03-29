@@ -8,17 +8,16 @@
 import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
+  ScrollView,
+  StyleSheet,
   useColorScheme,
-  Button as NButton,
-  Image,
   Text,
-  View,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Button from './components/ui/Buttons/Button';
-import {StyleSheet} from 'react-native';
-
+import MainLayout from './components/layouts/MainLayout/MainLayout';
+import Menu from './components/ui/Menu/Menu';
+import ListProduct from './components/pages/ListProduct/ListProduct';
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -26,86 +25,42 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   //let counter = 0;
-  const [counter, setcounter] = useState(0);
+  //const [counter, setcounter] = useState(0);
+  const [produits, setProduits] = useState([]);
   useEffect(() => {
     console.log('-------------------');
-    console.log('nouvelle variable de counter : ', counter);
+    console.log('nouvelle appel vers l api product : ');
     console.log('============');
+    fetch(
+      'http://my-json-server.typicode.com/champix56/frncv1-2023-03-27/products',
+    )
+      .then(retour => {
+        return retour.json();
+      })
+      .then(arr => setProduits(arr));
     /* return () => {
       effect
     };*/
-  }, [counter]);
+  }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
-      <View>
-        <Text style={styles.displayCounterText}>counter</Text>
-        <Text style={{...styles.displayCounterText, ...styles.big}}>
-          {counter}
-        </Text>
-      </View>
-      <View style={styles.oneLigne}>
-        <Button
-          bgcolor="red"
-          onPress={() => {
-            setcounter(counter + 1);
-            console.log(counter);
-          }}>
-          <Image
-            source={{
-              uri: 'https://cdn.onlinewebfonts.com/svg/img_27761.png',
-            }}
-            style={{width: 50, height: 50}}
-          />
-        </Button>
-        <Button
-          bgcolor="blue"
-          onPress={() => {
-            setcounter(counter - 1);
-            console.log(counter);
-          }}>
-          <Image
-            source={{
-              uri: 'https://cdn.icon-icons.com/icons2/37/PNG/512/less_3158.png',
-            }}
-            style={{width: 50, height: 50}}
-          />
-        </Button>
-      </View>
-      <Button text="bonjour" />
-      <Button text="helloworld">
-        <Image
-          source={{
-            uri: 'https://randompicturegenerator.com/img/car-generator/g3f3c8f4af303d1723f5d5e2f3050e53373d2708f67a2db6ae4e920d6e88c8242790303c2abea53e744b1b690e79613e5_640.jpg',
-          }}
-          style={{width: 50, height: 50}}
-        />
-      </Button>
-      {/* <Button children="Button4"></Button>*/}
-      <Button text="lumiere"></Button>
-      <Button>
-        <Text>clique moi</Text>
-      </Button>
-      <Button text="2eme essai" style={{backgroundColor: 'red'}} />
-      <Button
-        text="carl jung"
-        bgcolor="purple"
-        color="green"
-        style={{backgroundColor: 'grey'}}
-      />
-      <NButton title="le bouton classique"></NButton>
+      <MainLayout>
+        <ScrollView style={styles.page}>
+          {produits.map((p: any) => (
+            <Text>{p.name}</Text>
+          ))}
+          <ListProduct />
+        </ScrollView>
+        <Menu />
+      </MainLayout>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  displayCounterText: {
-    textAlign: 'center',
+  page: {
+    flexGrow: 1,
   },
-  big: {
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  oneLigne: {},
 });
 
 export default App;
